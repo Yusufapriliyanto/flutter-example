@@ -1,4 +1,4 @@
-import 'package:flutter_sqlite_crud/student_model.dart';
+import 'package:flutter_contoh/student_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'dart:io' as io;
 import 'package:path/path.dart';

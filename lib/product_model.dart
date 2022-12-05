@@ -19,6 +19,6 @@ class Product {
     id = map['id'];
     name = map['name'];
     price = map['price'];
-    product_description = map['product_description']
+    product_description = map['product_description'];
   }
 }

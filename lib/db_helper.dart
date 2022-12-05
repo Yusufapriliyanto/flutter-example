@@ -1,4 +1,4 @@
-import 'package:flutter_contoh/student_model.dart';
+import 'package:flutter_contoh/product_model.dart';
 import 'package:sqflite/sqflite.dart';
 import 'dart:io' as io;
 import 'package:path/path.dart';
@@ -16,20 +16,20 @@ class DBHelper {
 
   initDatabase() async {
     io.Directory documentDirectory = await getApplicationDocumentsDirectory();
-    String path = join(documentDirectory.path, 'student.db');
+    String path = join(documentDirectory.path, 'product.db');
     var db = await openDatabase(path, version: 1, onCreate: _onCreate);
     return db;
   }
 
   _onCreate(Database db, int version) async {
     await db
-        .execute('CREATE TABLE student (id INTEGER PRIMARY KEY, name TEXT)');
+        .execute('CREATE TABLE product (id INTEGER PRIMARY KEY, name TEXT, price FLOAT, product_description TEXT)');
   }
 
-  Future<Student> add(Student student) async {
+  Future<Product> add(Product product) async {
     var dbClient = await db;
-    student.id = await dbClient.insert('student', student.toMap());
-    return student;
+    product.id = await dbClient.insert('product', product.toMap());
+    return product;
   }
 
   Future<List<Student>> getStudents() async {
